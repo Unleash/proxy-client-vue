@@ -10,6 +10,11 @@
     "resolveJsonModule": true,
     // "isolatedModules": true,
     "noImplicitAny": false,
+    "paths": {
+      "unleash-proxy-client": [
+        "node_modules/unleash-proxy-client/build/index.d.ts"
+      ] // This mapping is relative to "baseUrl"
+    },
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "dist",
