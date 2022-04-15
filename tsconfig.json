@@ -10,6 +10,8 @@
     "resolveJsonModule": true,
     // "isolatedModules": true,
     "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "dist",
     "lib": ["esnext", "dom"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
