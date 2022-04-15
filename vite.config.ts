@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'proxy-client-vue',
-      fileName: format => `proxy-client-vue.${format}.js`
+      fileName: format => `index.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
