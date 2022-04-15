@@ -9,6 +9,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     // "isolatedModules": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "dist",
