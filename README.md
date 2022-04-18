@@ -142,7 +142,7 @@ useFlagsStatus retrieves the ready state and error events.
 Follow the following steps in order to delay rendering until the flags have been fetched.
 
 ```jsx
-import { useFlagsStatus } from '@unleash/proxy-client-vue'
+import { useFlagsStatus } from '@nunogois/proxy-client-vue'
 
 const { flagsReady, flagsError } = useFlagsStatus()
 
@@ -155,7 +155,7 @@ const { flagsReady, flagsError } = useFlagsStatus()
 Follow the following steps in order to update the unleash context:
 
 ```jsx
-import { useUnleashContext, useFlag } from '@unleash/proxy-client-vue'
+import { useUnleashContext, useFlag } from '@nunogois/proxy-client-vue'
 
 const props = defineProps<{
   userId: string
