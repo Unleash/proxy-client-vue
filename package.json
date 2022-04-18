@@ -1,6 +1,6 @@
 {
   "name": "@nunogois/proxy-client-vue",
-  "version": "0.1.0",
+  "version": "0.1.11",
   "description": "Vue interface for working with Unleash",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -24,6 +24,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "unleash-proxy-client": "v2.0.0-beta.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
@@ -31,7 +32,6 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "rollup-plugin-typescript2": "^0.31.2",
     "typescript": "^4.5.4",
-    "unleash-proxy-client": "v2.0.0-beta.0",
     "vite": "^2.9.2",
     "vue-tsc": "^0.29.8"
   }

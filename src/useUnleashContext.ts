@@ -4,7 +4,7 @@ import { ContextStateSymbol } from './context'
 const useUnleashContext = () => {
   const { updateContext } = inject(ContextStateSymbol) || {}
 
-  return updateContext
+  return updateContext.value
 }
 
 export default useUnleashContext
