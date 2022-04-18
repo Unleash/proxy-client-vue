@@ -4,10 +4,7 @@ export type {
   IMutableContext,
   IVariant,
   IToggle,
-  IStorageProvider
-} from 'unleash-proxy-client'
-
-export {
+  IStorageProvider,
   UnleashClient,
   LocalStorageProvider,
   InMemoryStorageProvider

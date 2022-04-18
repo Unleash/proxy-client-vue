@@ -1,6 +1,8 @@
-# WIP
+# proxy-client-vue
 
-Work in progress of a PoC for a proxy-client-vue - A Vue SDK for [Unleash](https://www.getunleash.io/) based on the official [proxy-client-react](https://github.com/Unleash/proxy-client-react).
+PoC for a Vue SDK for [Unleash](https://www.getunleash.io/) based on the official [proxy-client-react](https://github.com/Unleash/proxy-client-react).
+
+Check out a demo here: [proxy-client-vue-demo](https://github.com/nunogois/proxy-client-vue-demo).
 
 # DISCLAIMER:
 

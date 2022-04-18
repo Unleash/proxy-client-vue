@@ -3,7 +3,7 @@ import { ContextStateSymbol } from './context'
 
 const useFlag = (name: string) => {
   const { isEnabled, client } = inject(ContextStateSymbol) || {}
-  const flag = ref(!!isEnabled(name))
+  const flag = ref(!!isEnabled.value(name))
   const flagRef = ref()
   flagRef.value = flag
 
