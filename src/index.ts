@@ -3,12 +3,12 @@ export type {
   IContext,
   IMutableContext,
   IVariant,
-  IToggle
+  IToggle,
+  IStorageProvider
 } from 'unleash-proxy-client'
 
 export {
   UnleashClient,
-  IStorageProvider,
   LocalStorageProvider,
   InMemoryStorageProvider
 } from 'unleash-proxy-client'

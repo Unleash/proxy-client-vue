@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 // import { nodeResolve } from '@rollup/plugin-node-resolve'
 // import commonjs from '@rollup/plugin-commonjs'
-// import typescript from 'rollup-plugin-typescript2'
+import typescript from 'rollup-plugin-typescript2'
 // import * as vueRollup from 'rollup-plugin-vue'
 import vue from '@vitejs/plugin-vue'
 
@@ -21,8 +21,12 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         }
-      }
-      // plugins: [typescript()]
+      },
+      plugins: [
+        typescript({
+          include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue']
+        })
+      ]
       //plugins: [nodeResolve(), commonjs(), typescript(), vueRollup.default()]
     }
   },

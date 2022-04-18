@@ -3,7 +3,7 @@ import { inject } from 'vue'
 import { ContextStateSymbol } from './context'
 
 const useUnleashClient = () => {
-  const { client } = inject(ContextStateSymbol)
+  const { client } = inject(ContextStateSymbol) || {}
 
   return client as UnleashClient
 }

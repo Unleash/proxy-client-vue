@@ -11,7 +11,7 @@ const { config, unleashClient, startClient } = defineProps<{
   startClient?: boolean
 }>()
 
-const client = ref<UnleashClient>(unleashClient)
+const client = ref<UnleashClient | undefined>(unleashClient)
 const flagsReady = ref(false)
 const flagsError = ref(null)
 
@@ -22,25 +22,25 @@ if (!config && !unleashClient) {
   )
 }
 
-if (!client.value) {
+if (!client.value && config) {
   client.value = new UnleashClient(config)
 }
 
-client.value.on('ready', () => {
+client.value?.on('ready', () => {
   flagsReady.value = true
 })
 
-client.value.on('error', (e: any) => {
+client.value?.on('error', (e: any) => {
   flagsError.value = e
 })
 
 onMounted(() => {
   const shouldStartClient = startClient || !unleashClient
-  if (shouldStartClient) client.value.start()
+  if (shouldStartClient) client.value?.start()
 })
 
 const updateContext = async (context: IContext): Promise<void> => {
-  await client.value.updateContext(context)
+  await client.value?.updateContext(context)
 }
 
 const isEnabled = (name: string) => client.value?.isEnabled(name)

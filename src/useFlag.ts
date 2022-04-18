@@ -2,8 +2,8 @@ import { ref, inject } from 'vue'
 import { ContextStateSymbol } from './context'
 
 const useFlag = (name: string) => {
-  const { isEnabled, client } = inject(ContextStateSymbol)
-  const flag = ref(!!isEnabled.value(name))
+  const { isEnabled, client } = inject(ContextStateSymbol) || {}
+  const flag = ref(!!isEnabled(name))
   const flagRef = ref()
   flagRef.value = flag
 
