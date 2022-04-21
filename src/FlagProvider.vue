@@ -5,7 +5,11 @@ import { UnleashClient, IConfig, IContext } from 'unleash-proxy-client'
 
 type eventArgs = [Function, any]
 
-const { config, unleashClient, startClient } = defineProps<{
+const {
+  config,
+  unleashClient,
+  startClient = true
+} = defineProps<{
   config?: IConfig
   unleashClient?: UnleashClient
   startClient?: boolean
