@@ -1,6 +1,6 @@
 {
   "name": "@nunogois/proxy-client-vue",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Vue interface for working with Unleash",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
