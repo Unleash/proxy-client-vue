@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nunogois/proxy-client-vue"
+    "url": "https://github.com/Unleash/proxy-client-vue"
   },
   "exports": {
     ".": {
