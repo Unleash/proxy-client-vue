@@ -23,10 +23,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "prepare": "yarn build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "unleash-proxy-client": "v2.0.0-beta.0",
+    "unleash-proxy-client": "v2.0.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
