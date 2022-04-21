@@ -11,9 +11,9 @@ This library is meant to be used with the [unleash-proxy](https://github.com/Unl
 # Installation
 
 ```bash
-npm install @Unleash/proxy-client-vue
+npm install @unleash/proxy-client-vue
 // or
-yarn add @Unleash/proxy-client-vue
+yarn add @unleash/proxy-client-vue
 ```
 
 # Initialization
@@ -21,7 +21,7 @@ yarn add @Unleash/proxy-client-vue
 Import the provider like this in your entrypoint file (typically App.vue):
 
 ```jsx
-import FlagProvider from '@Unleash/proxy-client-vue'
+import FlagProvider from '@unleash/proxy-client-vue'
 
 const config = {
   url: 'https://HOSTNAME/proxy',
@@ -41,7 +41,7 @@ const config = {
 Alternatively, you can pass your own client in to the FlagProvider:
 
 ```jsx
-import FlagProvider, { UnleashClient } from '@Unleash/proxy-client-vue'
+import FlagProvider, { UnleashClient } from '@unleash/proxy-client-vue'
 
 const config = {
   url: 'https://HOSTNAME/proxy',
@@ -107,7 +107,7 @@ To check if a feature is enabled:
 
 ```jsx
 <script setup>
-import { useFlag } from '@Unleash/proxy-client-vue'
+import { useFlag } from '@unleash/proxy-client-vue'
 
 const enabled = useFlag('travel.landing')
 </script>
@@ -124,7 +124,7 @@ To check variants:
 
 ```jsx
 <script setup>
-import { useVariant } from '@Unleash/proxy-client-vue'
+import { useVariant } from '@unleash/proxy-client-vue'
 
 const variant = useVariant('travel.landing')
 </script>
@@ -142,7 +142,7 @@ useFlagsStatus retrieves the ready state and error events.
 Follow the following steps in order to delay rendering until the flags have been fetched.
 
 ```jsx
-import { useFlagsStatus } from '@Unleash/proxy-client-vue'
+import { useFlagsStatus } from '@unleash/proxy-client-vue'
 
 const { flagsReady, flagsError } = useFlagsStatus()
 
@@ -155,7 +155,7 @@ const { flagsReady, flagsError } = useFlagsStatus()
 Follow the following steps in order to update the unleash context:
 
 ```jsx
-import { useUnleashContext, useFlag } from '@Unleash/proxy-client-vue'
+import { useUnleashContext, useFlag } from '@unleash/proxy-client-vue'
 
 const props = defineProps<{
   userId: string
