@@ -19,7 +19,7 @@ yarn add @unleash/proxy-client-vue
 Import the provider like this in your entrypoint file (typically App.vue):
 
 ```jsx
-import FlagProvider from '@unleash/proxy-client-vue'
+import { FlagProvider } from '@unleash/proxy-client-vue'
 
 const config = {
   url: 'https://HOSTNAME/proxy',
@@ -39,7 +39,7 @@ const config = {
 Alternatively, you can pass your own client in to the FlagProvider:
 
 ```jsx
-import FlagProvider, { UnleashClient } from '@unleash/proxy-client-vue'
+import { FlagProvider, UnleashClient } from '@unleash/proxy-client-vue'
 
 const config = {
   url: 'https://HOSTNAME/proxy',
