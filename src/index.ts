@@ -12,6 +12,7 @@ export {
   InMemoryStorageProvider
 } from 'unleash-proxy-client'
 
+import { ContextStateSymbol, ContextUpdateSymbol } from './context'
 import FlagProvider from './FlagProvider.vue'
 import useFlag from './useFlag'
 import useFlagsStatus from './useFlagsStatus'
@@ -20,6 +21,8 @@ import useUnleashContext from './useUnleashContext'
 import useUnleashClient from './useUnleashClient'
 
 export {
+  ContextStateSymbol,
+  ContextUpdateSymbol,
   FlagProvider,
   useFlag,
   useFlagsStatus,
