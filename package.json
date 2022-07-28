@@ -1,6 +1,6 @@
 {
   "name": "@unleash/proxy-client-vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue interface for working with Unleash",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -27,7 +27,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "unleash-proxy-client": "v2.0.0",
+    "unleash-proxy-client": "^2.0.3",
     "vue": "^3.2.25"
   },
   "devDependencies": {
