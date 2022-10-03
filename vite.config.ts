@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import typescript from 'rollup-plugin-typescript2'
+import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue'
 
 const path = require('path')
@@ -18,13 +18,8 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         }
-      },
-      plugins: [
-        typescript({
-          include: ['src/**/*.ts', 'src/**/*.vue']
-        })
-      ]
+      }
     }
   },
-  plugins: [vue()]
+  plugins: [vue(), dts()]
 })
