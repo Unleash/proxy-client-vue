@@ -1,4 +1,4 @@
-import { ref, inject, onUnmounted } from 'vue'
+import { ref, inject, onUnmounted } from 'vue-demi'
 import { ContextStateSymbol } from './context'
 
 const useVariant = (name: string) => {

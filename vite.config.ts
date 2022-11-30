@@ -21,5 +21,11 @@ export default defineConfig({
       }
     }
   },
-  plugins: [vue(), dts()]
+  plugins: [vue(), dts()],
+  optimizeDeps: {
+    exclude: ['vue-demi']
+  },
+  resolve: {
+    dedupe: ['vue']
+  }
 })

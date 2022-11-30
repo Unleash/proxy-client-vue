@@ -1,4 +1,4 @@
-import { inject } from 'vue'
+import { inject } from 'vue-demi'
 import { ContextStateSymbol } from './context'
 
 const useFlagsStatus = () => {
