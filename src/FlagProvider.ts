@@ -1,4 +1,4 @@
-import { onMounted, provide, h, defineComponent } from 'vue-demi'
+import { onMounted, provide, defineComponent } from 'vue-demi'
 import { UnleashClient, IConfig } from 'unleash-proxy-client'
 
 import { ContextStateSymbol, ContextUpdateSymbol } from './context'
@@ -21,7 +21,7 @@ export default defineComponent({
       default: true
     }
   },
-  setup(props) {
+  setup(props, { slots }) {
     const { context, update, start } = useUnleashProvide({
       config: props.config,
       unleashClient: props.unleashClient,
@@ -34,8 +34,6 @@ export default defineComponent({
     onMounted(() => {
       start()
     })
-  },
-  render() {
-    return h('div', {}, this.$slots.default)
+    return () => slots.default?.()
   }
 })
