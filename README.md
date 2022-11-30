@@ -34,6 +34,7 @@ const config = {
 
 const app = createApp(App)
 app.use(unleashPlugin, { config })
+app.mount('#app')
 ```
 
 Or use the FlagProvider component like this in your entrypoint file (typically App.vue):
@@ -76,6 +77,7 @@ const client = new UnleashClient(config)
 
 const app = createApp(App)
 app.use(unleashPlugin, { unleashClient: client })
+app.mount('#app')
 ```
 
 Or, using FlagProvider:
