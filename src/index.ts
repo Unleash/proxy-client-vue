@@ -19,6 +19,7 @@ import useFlagsStatus from './useFlagsStatus'
 import useVariant from './useVariant'
 import useUnleashContext from './useUnleashContext'
 import useUnleashClient from './useUnleashClient'
+import plugin from './plugin'
 
 export {
   ContextStateSymbol,
@@ -28,7 +29,8 @@ export {
   useFlagsStatus,
   useVariant,
   useUnleashContext,
-  useUnleashClient
+  useUnleashClient,
+  plugin
 }
 
 export default FlagProvider

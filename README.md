@@ -16,7 +16,28 @@ yarn add @unleash/proxy-client-vue
 
 # Initialization
 
-Import the provider like this in your entrypoint file (typically App.vue):
+## Using config:
+
+```jsx
+import { createApp } from 'vue'
+import { plugin as unleashPlugin } from '@unleash/proxy-client-vue'
+// import the root component App from a single-file component.
+import App from './App.vue'
+
+const config = {
+  url: 'https://HOSTNAME/proxy',
+  clientKey: 'PROXYKEY',
+  refreshInterval: 15,
+  appName: 'your-app-name',
+  environment: 'dev'
+}
+
+const app = createApp(App)
+app.use(unleashPlugin, { config })
+app.mount('#app')
+```
+
+Or use the FlagProvider component like this in your entrypoint file (typically App.vue):
 
 ```jsx
 import { FlagProvider } from '@unleash/proxy-client-vue'
@@ -36,7 +57,30 @@ const config = {
 </template>
 ```
 
-Alternatively, you can pass your own client in to the FlagProvider:
+## Initializing your own client
+
+```jsx
+import { createApp } from 'vue'
+import { plugin as unleashPlugin } from '@unleash/proxy-client-vue'
+// import the root component App from a single-file component.
+import App from './App.vue'
+
+const config = {
+  url: 'https://HOSTNAME/proxy',
+  clientKey: 'PROXYKEY',
+  refreshInterval: 15,
+  appName: 'your-app-name',
+  environment: 'dev'
+}
+
+const client = new UnleashClient(config)
+
+const app = createApp(App)
+app.use(unleashPlugin, { unleashClient: client })
+app.mount('#app')
+```
+
+Or, using FlagProvider:
 
 ```jsx
 import { FlagProvider, UnleashClient } from '@unleash/proxy-client-vue'
