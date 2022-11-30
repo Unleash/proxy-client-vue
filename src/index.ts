@@ -13,7 +13,7 @@ export {
 } from 'unleash-proxy-client'
 
 import { ContextStateSymbol, ContextUpdateSymbol } from './context'
-import FlagProvider from './FlagProvider.vue'
+import FlagProvider from './FlagProvider'
 import useFlag from './useFlag'
 import useFlagsStatus from './useFlagsStatus'
 import useVariant from './useVariant'

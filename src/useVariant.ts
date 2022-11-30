@@ -1,8 +1,10 @@
 import { ref, inject, onUnmounted } from 'vue-demi'
 import { ContextStateSymbol } from './context'
+import { ProviderContext } from './useUnleashProvide'
 
 const useVariant = (name: string) => {
-  const { getVariant, client } = inject(ContextStateSymbol) || {}
+  const { getVariant, client } =
+    inject<ProviderContext>(ContextStateSymbol) || {}
   const variant = ref(getVariant.value(name))
 
   function onUpdate() {

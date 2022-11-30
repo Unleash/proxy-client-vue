@@ -9,6 +9,8 @@ export interface IProvideOptions {
   startClient?: boolean
 }
 
+export type ProviderContext = Record<string, any>
+
 function useUnleashProvide({
   config,
   unleashClient,
@@ -54,7 +56,7 @@ function useUnleashProvide({
     client,
     flagsReady,
     flagsError
-  }) as { [key: string]: any }
+  }) as ProviderContext
 
   const update = (property: string, value: any) => {
     context[property] = value

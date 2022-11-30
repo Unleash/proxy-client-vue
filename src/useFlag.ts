@@ -1,8 +1,10 @@
 import { ref, inject, onUnmounted } from 'vue-demi'
 import { ContextStateSymbol } from './context'
+import { ProviderContext } from './useUnleashProvide'
 
 const useFlag = (name: string) => {
-  const { isEnabled, client } = inject(ContextStateSymbol) || {}
+  const { isEnabled, client } =
+    inject<ProviderContext>(ContextStateSymbol) || {}
   const flag = ref(!!isEnabled.value(name))
 
   function onUpdate() {
