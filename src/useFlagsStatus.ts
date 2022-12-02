@@ -1,10 +1,16 @@
-import { inject } from 'vue-demi'
+import { inject, Ref } from 'vue-demi'
 import { ContextStateSymbol } from './context'
-import { ProviderContext } from './useUnleashProvide'
+
+type TFlagStatusContext = Partial<{
+  flagsReady: Ref<boolean>
+  flagsError: Ref<boolean>
+}>
 
 const useFlagsStatus = () => {
-  const { flagsReady, flagsError } =
-    inject<ProviderContext>(ContextStateSymbol) || {}
+  const { flagsReady, flagsError } = inject<TFlagStatusContext>(
+    ContextStateSymbol,
+    {}
+  )
 
   return { flagsReady, flagsError }
 }

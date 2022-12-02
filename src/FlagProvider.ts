@@ -1,4 +1,10 @@
-import { onMounted, provide, defineComponent } from 'vue-demi'
+import {
+  onMounted,
+  provide,
+  defineComponent,
+  h as _h,
+  getCurrentInstance
+} from 'vue-demi'
 import { UnleashClient, IConfig } from 'unleash-proxy-client'
 
 import { ContextStateSymbol, ContextUpdateSymbol } from './context'
@@ -22,18 +28,27 @@ export default defineComponent({
     }
   },
   setup(props, { slots }) {
+    console.log('setup')
     const { context, update, start } = useUnleashProvide({
       config: props.config,
       unleashClient: props.unleashClient,
       startClient: props.startClient
     })
 
+    const vm = getCurrentInstance()
+    const h = _h.bind(vm)
+
     provide(ContextStateSymbol, context)
     provide(ContextUpdateSymbol, update)
 
+    // Not working on Vue2
     onMounted(() => {
+      console.log('start')
       start()
     })
-    return () => slots.default?.()
+
+    // Not rendered in Vue2
+    return () => h('span', 'Hello World')
+    // return () => slots.default?.()
   }
 })

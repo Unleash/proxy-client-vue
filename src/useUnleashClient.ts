@@ -1,12 +1,15 @@
 import { UnleashClient } from 'unleash-proxy-client'
-import { inject } from 'vue-demi'
+import { inject, Ref } from 'vue-demi'
 import { ContextStateSymbol } from './context'
-import { ProviderContext } from './useUnleashProvide'
+
+type TUnleashClientContext = Partial<{
+  client: Ref<UnleashClient>
+}>
 
 const useUnleashClient = () => {
-  const { client } = inject<ProviderContext>(ContextStateSymbol) || {}
+  const { client } = inject<TUnleashClientContext>(ContextStateSymbol, {})
 
-  return client.value as UnleashClient
+  return client?.value as UnleashClient
 }
 
 export default useUnleashClient

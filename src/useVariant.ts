@@ -1,32 +1,36 @@
-import { ref, inject, onUnmounted } from 'vue-demi'
+import { IVariant, UnleashClient } from 'unleash-proxy-client'
+import { ref, inject, onUnmounted, Ref } from 'vue-demi'
 import { ContextStateSymbol } from './context'
-import { ProviderContext } from './useUnleashProvide'
+
+type TVariantContext = Partial<{
+  getVariant: Ref<(name: string) => IVariant | undefined>
+  client: Ref<UnleashClient>
+}>
 
 const useVariant = (name: string) => {
-  const { getVariant, client } =
-    inject<ProviderContext>(ContextStateSymbol) || {}
-  const variant = ref(getVariant.value(name))
+  const { getVariant, client } = inject<TVariantContext>(ContextStateSymbol, {})
+  const variant = ref(getVariant?.value(name))
 
   function onUpdate() {
-    const newVariant = getVariant.value(name)
+    const newVariant = getVariant?.value(name)
     if (
-      newVariant.name !== variant.value.name ||
-      newVariant.enabled !== variant.value.enabled
+      newVariant?.name !== variant.value?.name ||
+      newVariant?.enabled !== variant.value?.enabled
     ) {
       variant.value = newVariant
     }
   }
 
   function onReady() {
-    variant.value = getVariant.value(name)
+    variant.value = getVariant?.value(name)
   }
 
-  client.value.on('ready', onReady)
-  client.value.on('update', onUpdate)
+  client?.value.on('ready', onReady)
+  client?.value.on('update', onUpdate)
 
   onUnmounted(() => {
-    client.value.off('ready', onReady)
-    client.value.off('update', onUpdate)
+    client?.value.off('ready', onReady)
+    client?.value.off('update', onUpdate)
   })
 
   return variant || {}

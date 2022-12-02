@@ -13,7 +13,7 @@ export default defineConfig({
       fileName: format => `index.${format}.js`
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@vue/composition-api'],
       output: {
         globals: {
           vue: 'Vue'
