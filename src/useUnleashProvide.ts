@@ -1,5 +1,5 @@
 import { ref, reactive, toRefs } from 'vue'
-import { UnleashClient, IConfig, IContext } from "unleash-proxy-client"
+import { UnleashClient, IConfig, IContext } from 'unleash-proxy-client'
 
 type eventArgs = [Function, any]
 
@@ -53,8 +53,8 @@ function useUnleashProvide({
     getVariant,
     client,
     flagsReady,
-    flagsError,
-  }) as { [key: string]: any }
+    flagsError
+  })
 
   const update = (property: string, value: any) => {
     context[property] = value

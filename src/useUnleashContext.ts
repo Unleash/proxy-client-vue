@@ -1,10 +1,15 @@
-import { inject } from 'vue'
+import { IContext } from 'unleash-proxy-client'
+import { inject, Ref } from 'vue'
 import { ContextStateSymbol } from './context'
 
-const useUnleashContext = () => {
-  const { updateContext } = inject(ContextStateSymbol) || {}
+type TUnleashContext = Partial<{
+  updateContext: Ref<(context: IContext) => Promise<void>>
+}>
 
-  return updateContext.value
+const useUnleashContext = () => {
+  const { updateContext } = inject<TUnleashContext>(ContextStateSymbol, {})
+
+  return updateContext?.value
 }
 
 export default useUnleashContext
