@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { onMounted, provide } from 'vue'
-import { UnleashClient, IConfig } from "unleash-proxy-client"
+import { UnleashClient, IConfig } from 'unleash-proxy-client'
 
 import { ContextStateSymbol, ContextUpdateSymbol } from './context'
-import useUnleashProvide from './useUnleashProvide';
-
-
+import useUnleashProvide from './useUnleashProvide'
 
 const {
   config,
@@ -18,11 +16,14 @@ const {
   startClient?: boolean
 }>()
 
-const { context, start, update } = useUnleashProvide({ config, unleashClient, startClient })
+const { context, start, update } = useUnleashProvide({
+  config,
+  unleashClient,
+  startClient
+})
 
 provide(ContextStateSymbol, context)
 provide(ContextUpdateSymbol, update)
-
 
 onMounted(() => {
   start()
