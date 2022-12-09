@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import vue from '@vitejs/plugin-vue'
 
 const path = require('path')
 
@@ -8,24 +7,20 @@ const path = require('path')
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'proxy-client-vue',
+      entry: path.resolve(__dirname, 'src/index.ts'),
       fileName: format => `index.${format}.js`
     },
+    sourcemap: true,
     rollupOptions: {
-      external: ['vue', '@vue/composition-api'],
+      external: ['vue', 'vue-demi'],
       output: {
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          'vue-demi': 'VueDemi'
         }
       }
     }
   },
-  plugins: [vue(), dts()],
-  optimizeDeps: {
-    exclude: ['vue-demi']
-  },
-  resolve: {
-    dedupe: ['vue']
-  }
+  plugins: [dts()]
 })

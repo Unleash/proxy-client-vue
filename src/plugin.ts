@@ -1,19 +1,40 @@
-import { App, Plugin } from 'vue-demi'
+import { isVue3, Plugin } from 'vue-demi'
 import { ContextStateSymbol, ContextUpdateSymbol } from './context'
 import useUnleashProvide, { IProvideOptions } from './useUnleashProvide'
 
-const plugin: Plugin = {
-  install(app: App, { config, unleashClient, startClient }: IProvideOptions) {
-    const { context, update, start } = useUnleashProvide({
-      config,
-      unleashClient,
-      startClient
-    })
+export function plugin({
+  config,
+  unleashClient,
+  startClient
+}: IProvideOptions): Plugin {
+  const { context, update, start } = useUnleashProvide({
+    config,
+    unleashClient,
+    startClient
+  })
 
-    app.provide(ContextStateSymbol, context)
-    app.provide(ContextUpdateSymbol, update)
+  return {
+    install(vue) {
+      if (isVue3) {
+        const vue3 = vue
 
-    start()
+        vue3.provide(ContextStateSymbol, context)
+        vue3.provide(ContextUpdateSymbol, update)
+      } else {
+        const vue2 = vue
+
+        vue2.mixin({
+          provide() {
+            return {
+              [ContextStateSymbol]: context,
+              [ContextUpdateSymbol]: update
+            }
+          }
+        })
+      }
+
+      start()
+    }
   }
 }
 
