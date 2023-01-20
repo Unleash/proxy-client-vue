@@ -43,11 +43,10 @@ Or use the FlagProvider component like this in your entrypoint file (typically A
 import { FlagProvider } from '@unleash/proxy-client-vue'
 
 const config = {
-  url: 'https://HOSTNAME/proxy',
-  clientKey: 'PROXYKEY',
+  url: 'https://UNLEASH-INSTANCE/api/frontend',
+  clientKey: 'CLIENT—SIDE—API—TOKEN',
   refreshInterval: 15,
   appName: 'your-app-name',
-  environment: 'dev'
 }
 
 <template>
@@ -86,11 +85,10 @@ Or, using FlagProvider:
 import { FlagProvider, UnleashClient } from '@unleash/proxy-client-vue'
 
 const config = {
-  url: 'https://HOSTNAME/proxy',
-  clientKey: 'PROXYKEY',
+  url: 'https://UNLEASH-INSTANCE/api/frontend',
+  clientKey: 'CLIENT—SIDE—API—TOKEN',
   refreshInterval: 15,
   appName: 'your-app-name',
-  environment: 'dev'
 }
 
 const client = new UnleashClient(config)
