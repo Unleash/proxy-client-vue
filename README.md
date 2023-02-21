@@ -29,7 +29,6 @@ const config = {
   clientKey: 'PROXYKEY',
   refreshInterval: 15,
   appName: 'your-app-name',
-  environment: 'dev'
 }
 
 const app = createApp(App)
@@ -69,7 +68,6 @@ const config = {
   clientKey: 'PROXYKEY',
   refreshInterval: 15,
   appName: 'your-app-name',
-  environment: 'dev'
 }
 
 const client = new UnleashClient(config)
