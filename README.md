@@ -2,11 +2,11 @@
 
 PoC for a Vue SDK for [Unleash](https://www.getunleash.io/) based on the official [proxy-client-react](https://github.com/Unleash/proxy-client-react).
 
-# DISCLAIMER:
+## DISCLAIMER
 
 This library is meant to be used with the [unleash-proxy](https://github.com/Unleash/unleash-proxy). The proxy application layer will sit between your unleash instance and your client applications, and provides performance and security benefits. DO NOT TRY to connect this library directly to the unleash instance, as the datasets follow different formats because the proxy only returns evaluated toggle information.
 
-# Installation
+## Installation
 
 ```bash
 npm install @unleash/proxy-client-vue
@@ -14,9 +14,9 @@ npm install @unleash/proxy-client-vue
 yarn add @unleash/proxy-client-vue
 ```
 
-# Initialization
+## Initialization
 
-## Using config:
+### Using config:
 
 ```jsx
 import { createApp } from 'vue'
@@ -55,7 +55,7 @@ const config = {
 </template>
 ```
 
-## Initializing your own client
+### Initializing your own client
 
 ```jsx
 import { createApp } from 'vue'
@@ -98,7 +98,7 @@ const client = new UnleashClient(config)
 </template>
 ```
 
-## Deferring client start
+### Deferring client start
 
 By default, the Unleash client will start polling the Proxy for toggles immediately when the `FlagProvider` component renders. You can delay the polling by:
 
@@ -137,9 +137,9 @@ onMounted(() => {
 </template>
 ```
 
-# Usage
+## Usage
 
-## Check feature toggle status
+### Check feature toggle status
 
 To check if a feature is enabled:
 
@@ -156,7 +156,7 @@ const enabled = useFlag('travel.landing')
 </template>
 ```
 
-## Check variants
+### Check variants
 
 To check variants:
 
@@ -174,7 +174,7 @@ const variant = useVariant('travel.landing')
 </template>
 ```
 
-## Defer rendering until flags fetched
+### Defer rendering until flags fetched
 
 useFlagsStatus retrieves the ready state and error events.
 Follow the following steps in order to delay rendering until the flags have been fetched.
@@ -188,7 +188,7 @@ const { flagsReady, flagsError } = useFlagsStatus()
 <MyComponent v-else error={flagsError} />
 ```
 
-## Updating context
+### Updating context
 
 Follow the following steps in order to update the unleash context:
 
