@@ -1,5 +1,9 @@
-import { App, Plugin } from 'vue'
-import { ContextStateSymbol, ContextUpdateSymbol } from './context'
+import { App, Plugin, ref } from 'vue'
+import {
+  ContextReadySymbol,
+  ContextStateSymbol,
+  ContextUpdateSymbol
+} from './context'
 import useUnleashProvide, { IProvideOptions } from './useUnleashProvide'
 
 const plugin: Plugin = {
@@ -13,8 +17,10 @@ const plugin: Plugin = {
     app.provide(ContextStateSymbol, context)
     app.provide(ContextUpdateSymbol, update)
 
-    start()
-  }
+    const isReady = ref(start())
+
+    app.provide(ContextReadySymbol, isReady)
+  },
 }
 
 export default plugin

@@ -62,7 +62,7 @@ function useUnleashProvide({
 
   const start = () => {
     if (startClient || !unleashClient) {
-      client?.value?.start()
+      return client?.value?.start()
     }
   }
 
