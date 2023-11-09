@@ -7,16 +7,27 @@ type TVariantContext = Partial<{
   client: Ref<UnleashClient>
 }>
 
+const variantHasChanged = (
+  oldVariant?: IVariant,
+  newVariant?: IVariant
+): boolean => {
+  const variantsAreEqual =
+    oldVariant?.name === newVariant?.name &&
+    oldVariant?.enabled === newVariant?.enabled &&
+    oldVariant?.feature_enabled === newVariant?.feature_enabled &&
+    oldVariant?.payload?.type === newVariant?.payload?.type &&
+    oldVariant?.payload?.value === newVariant?.payload?.value
+
+  return !variantsAreEqual
+}
+
 const useVariant = (name: string) => {
   const { getVariant, client } = inject<TVariantContext>(ContextStateSymbol, {})
   const variant = ref(getVariant?.value(name))
 
   function onUpdate() {
     const newVariant = getVariant?.value(name)
-    if (
-      newVariant?.name !== variant.value?.name ||
-      newVariant?.enabled !== variant.value?.enabled
-    ) {
+    if (variantHasChanged(variant?.value, newVariant)) {
       variant.value = newVariant
     }
   }
